@@ -7,5 +7,4 @@ const Screen1 = () => (
     </View>
 );
 
-
 export default Screen1;
