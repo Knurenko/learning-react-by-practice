@@ -12,9 +12,6 @@ export const Home = ({ navigation }) => {
             navigation.navigate('Screen1')
           }
         />
-        <Button title="Screen2" />
-        <Button title="Screen3" />
-        <Button title="Screen4" />
       </View>
     </SafeAreaView>
   )
