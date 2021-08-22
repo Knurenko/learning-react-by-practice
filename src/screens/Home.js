@@ -1,10 +1,8 @@
 import React from 'react';
 import { StyleSheet, Button, View, SafeAreaView, } from 'react-native';
-// import Screen1 from './Screen1';
-// import Navigate from './navigate';
 
 
-export default function Home({ navigation }) {
+export const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -26,6 +24,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 100,
   },
 });

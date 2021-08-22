@@ -1,13 +1,13 @@
 import React from 'react';
-import Home from './screens/Home';
-import Screen1 from './screens/Screen1';
+import { Home } from '../screens/Home';
+import { Screen1 } from '../screens/Screen1';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
-export default function Navigate () {
+export const Navigate = () => {
     return <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen 
