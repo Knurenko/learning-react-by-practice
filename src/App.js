@@ -1,9 +1,6 @@
-import React from 'react';
-import { Navigate } from './navigation/navigate';
+import React from "react";
+import { Navigate } from "./navigation/navigate";
 
-
-const App = () => (
-  <Navigate />
-)
+const App = () => <Navigate />;
 
 export default App;
