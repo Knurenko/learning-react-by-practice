@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
-export const TextInput = () => {
+export const InputPlace = () => {
   const [number, onChangeNumber] = React.useState(null);
 
   return (

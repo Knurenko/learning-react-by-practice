@@ -1,4 +1,4 @@
 import React from "react";
-import { TextInput } from "../components/Text-input";
+import { InputPlace } from "../components/Text-input";
 
-export const Screen2 = () => <TextInput />;
+export const Screen2 = () => <InputPlace />;
