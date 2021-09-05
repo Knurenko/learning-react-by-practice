@@ -1,6 +1,6 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput, Text } from "react-native";
-import { Resultinput } from "./Resultinput";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import { ResultChecker } from "./ResultChecker";
 
 export const InputPlace = () => {
   const [number, setNumber] = React.useState(null);
@@ -16,7 +16,7 @@ export const InputPlace = () => {
         placeholder="Enter your number"
         onChangeText={onChangeText}
       />
-      <Resultinput value={number} />
+      <ResultChecker value={number} />
     </SafeAreaView>
   );
 };

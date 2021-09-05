@@ -7,7 +7,6 @@ export const Screen2 = () => {
   return (
     <View>
       <InputPlace />
-      <Resultinput />
     </View>
   );
 };
