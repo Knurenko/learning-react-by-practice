@@ -8,7 +8,9 @@ export const Home = (props) => {
       <View>
         <Button
           title="Страница1"
-          onPress={() => navigation.navigate("Screen1")}
+          onPress={() =>
+            navigation.navigate("Screen1", { hello: "Привет из хоума" })
+          }
         />
         <Button
           title="Страница2"
