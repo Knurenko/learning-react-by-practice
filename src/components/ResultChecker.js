@@ -16,15 +16,26 @@ export const ResultChecker = (props) => {
   const txt = resultText();
   return (
     <View>
-      <Text style={styles.txt}>{txt}</Text>
+      <Text style={isNumberOdd(props.value) ? styles.txt1 : styles.txt2}>
+        {txt}
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  txt: {
+  txt1: {
     textAlign: "center",
     color: "green",
+    height: 30,
+    marginLeft: 80,
+    marginRight: 80,
+    borderWidth: 2,
+    padding: 5,
+  },
+  txt2: {
+    textAlign: "center",
+    color: "red",
     height: 30,
     marginLeft: 80,
     marginRight: 80,
