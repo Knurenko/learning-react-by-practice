@@ -16,6 +16,14 @@ export const Home = (props) => {
           title="Страница2"
           onPress={() => navigation.navigate("Screen2")}
         />
+        <Button
+          title="Страница3"
+          onPress={() => navigation.navigate("Screen3")}
+        />
+        <Button
+          title="Страница4"
+          onPress={() => navigation.navigate("Screen4")}
+        />
       </View>
     </SafeAreaView>
   );
