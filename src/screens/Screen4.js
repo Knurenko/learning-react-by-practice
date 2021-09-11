@@ -18,7 +18,6 @@ export const Screen4 = ({ navigation }) => {
         title="Вернуть в Screen3"
         onPress={() => navigation.navigate("Screen3", { txt: txt4 })}
       />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 };

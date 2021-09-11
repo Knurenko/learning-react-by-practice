@@ -6,7 +6,6 @@ export const Screen3 = ({ navigation, route }) => {
   return (
     <View>
       <Button title="Screen4" onPress={() => navigation.navigate("Screen4")} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
       <Text>{txtFrom4}</Text>
     </View>
   );
