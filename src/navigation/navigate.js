@@ -4,6 +4,7 @@ import { Screen1 } from "../screens/Screen1";
 import { Screen2 } from "../screens/Screen2";
 import { Screen3 } from "../screens/Screen3";
 import { Screen4 } from "../screens/Screen4";
+import { Screen5 } from "../screens/Screen5";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -38,6 +39,11 @@ export const Navigate = () => {
           name="Screen4"
           component={Screen4}
           options={{ title: "Screen4" }}
+        />
+        <Stack.Screen
+          name="Screen5"
+          component={Screen5}
+          options={{ title: "Screen5" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

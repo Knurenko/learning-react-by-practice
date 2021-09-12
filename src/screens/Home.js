@@ -19,10 +19,17 @@ export const Home = (props) => {
         <Button
           title="Страница3"
           onPress={() => navigation.navigate("Screen3")}
+          color="green"
         />
         <Button
           title="Страница4"
           onPress={() => navigation.navigate("Screen4")}
+          color="green"
+        />
+        <Button
+          title="Страница5"
+          onPress={() => navigation.navigate("Screen5")}
+          color="purple"
         />
       </View>
     </SafeAreaView>
