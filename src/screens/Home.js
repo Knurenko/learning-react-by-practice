@@ -8,7 +8,28 @@ export const Home = (props) => {
       <View>
         <Button
           title="Страница1"
-          onPress={() => navigation.navigate("Screen1")}
+          onPress={() =>
+            navigation.navigate("Screen1", { hello: "Привет из хоума" })
+          }
+        />
+        <Button
+          title="Страница2"
+          onPress={() => navigation.navigate("Screen2")}
+        />
+        <Button
+          title="Страница3"
+          onPress={() => navigation.navigate("Screen3")}
+          color="green"
+        />
+        <Button
+          title="Страница4"
+          onPress={() => navigation.navigate("Screen4")}
+          color="green"
+        />
+        <Button
+          title="Страница5"
+          onPress={() => navigation.navigate("Screen5")}
+          color="purple"
         />
       </View>
     </SafeAreaView>
