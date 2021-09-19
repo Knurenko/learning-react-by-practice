@@ -1,6 +1,10 @@
 import React from "react";
-import { Navigate } from "./navigation/navigate";
+import { View, Text } from "react-native";
 
-const App = () => <Navigate />;
+const App = () => (
+  <View>
+    <Text>Start the project</Text>
+  </View>
+);
 
 export default App;

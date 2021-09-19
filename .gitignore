@@ -1,1 +1,12 @@
 node_modules
+android/.gradle
+android/.gradle/6.7/executionHistory/executionHistory.bin
+android/.gradle/6.7/executionHistory/executionHistory.lock
+android/.gradle/6.7/fileHashes/fileHashes.bin
+android/.gradle/6.7/fileHashes/fileHashes.lock
+android/.gradle/6.7/javaCompile/javaCompile.lock
+android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+android/.gradle/checksums/checksums.lock
+android/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties
+android/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt
+android/app/build/outputs/apk/debug/app-debug.apk
