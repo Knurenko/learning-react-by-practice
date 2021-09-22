@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
-import Product from "../components/productR";
+import { View } from "react-native";
+import { ProductS } from "../components/productS";
 
 export const productListScreen = () => {
+  const example = 10;
   return (
     <View>
-      <Product />
+      <ProductS />
     </View>
   );
 };
