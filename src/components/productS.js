@@ -1,18 +1,37 @@
 import React from "react";
-import { Text, SafeAreaView, FlatList, StyleSheet } from "react-native";
+import {
+  Text,
+  SafeAreaView,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { useSelector } from "react-redux";
 
-export const ProductS = () => {
+export const ProductS = ({ navigation }) => {
   const product = useSelector((state) => state.productsR);
+
+  const Item = ({ item, onPress }) => (
+    <TouchableOpacity onPress={onPress}>
+      <Text>{item.title}</Text>
+    </TouchableOpacity>
+  );
+
+  const renderItem = ({ item }) => {
+    return (
+      <Item
+        item={item}
+        onPress={() => navigation.navigate("productInfoScreen")}
+      />
+    );
+  };
 
   return (
     <SafeAreaView>
       <FlatList
         data={product}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Text style={styles.title}>{item.title}</Text>
-        )}
+        renderItem={renderItem}
       />
     </SafeAreaView>
   );
