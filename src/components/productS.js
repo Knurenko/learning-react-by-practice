@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 export const ProductS = ({ navigation }) => {
-  const product = useSelector((state) => state.productsR);
+  const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
   // const addNew = () => {
@@ -38,7 +38,7 @@ export const ProductS = ({ navigation }) => {
   return (
     <SafeAreaView>
       <FlatList
-        data={product}
+        data={products}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
       />
