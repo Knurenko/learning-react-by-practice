@@ -3,30 +3,21 @@ import {
   Text,
   SafeAreaView,
   FlatList,
-  StyleSheet,
   TouchableOpacity,
   Button,
 } from "react-native";
 
+import { addNewProduct } from "../redux/product/reducer";
+
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-export const ProductS = ({ navigation }) => {
+export const ProductS = () => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  // const addNew = () => {
-  //   const newProduct = {
-  //     title: "4",
-  //     id: 4,
-  //   };
-  //   dispatch({ type: "ADD_PRODUCT", payload: newProduct });
-  // };
-
   const Item = ({ item }) => (
-    <TouchableOpacity
-    // onPress={() => navigation.navigate("ProductInfo")}   FIX IT --- DON'T WORK!!! (it's for Nykaloff)
-    >
+    <TouchableOpacity>
       <Text>{item.title}</Text>
     </TouchableOpacity>
   );
@@ -42,13 +33,10 @@ export const ProductS = ({ navigation }) => {
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
       />
-      {/* <Button title="Добавить продукт" onPress={() => addNew()} /> */}
+      <Button
+        title="Добавить продукт"
+        onPress={() => dispatch(addNewProduct())}
+      />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-  },
-});

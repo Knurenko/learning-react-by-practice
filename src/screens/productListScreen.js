@@ -1,15 +1,13 @@
 import React from "react";
-import { View, Button } from "react-native";
+import { View } from "react-native";
 import { ProductS } from "../components/productS";
+
+// callaback прокинуть внутрь ProductS (вместо navigation)
 
 export const productListScreen = ({ navigation }) => {
   return (
     <View>
-      <ProductS />
-      {/* <Button
-        title="Добавить продукт"
-        onPress={() => navigation.navigate("addNew")}
-      /> */}
+      <ProductS navigation={navigation} />
     </View>
   );
 };
