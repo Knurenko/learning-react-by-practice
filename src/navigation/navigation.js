@@ -4,7 +4,7 @@ import { namesScreens } from "../navigation/namesScreens";
 
 import { productListScreen } from "../screens/productListScreen";
 import { productInfoScreen } from "../screens/productInfoScreen";
-import { addNewProduct } from "../screens/addNewProduct";
+import { addNewProductScreen } from "../screens/addNewProduct";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -26,8 +26,8 @@ export const Navigation = () => {
           options={{ title: "Product Information" }}
         />
         <Stack.Screen
-          name={namesScreens.addNewProduct}
-          component={addNewProduct}
+          name={namesScreens.addNewProductScreen}
+          component={addNewProductScreen}
           options={{ title: "Add Product" }}
         />
       </Stack.Navigator>
