@@ -4,9 +4,14 @@ import { useSelector } from "react-redux";
 
 export const sumPrice = () => {
   const price = useSelector((state) => state.product);
-  const sumall = price
-    .map((item) => item.price)
-    .reduce((prev, curr) => prev + curr, 0);
+  const getSum = (state) => {
+    let sum = 0;
+    state.foreach((item) => {
+      sum += item.price;
+    });
+
+    return sum;
+  };
 
   return (
     <View>

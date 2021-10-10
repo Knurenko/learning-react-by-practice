@@ -8,11 +8,11 @@ import { sumPrice } from "../components/sumPrice";
 export const productListScreen = ({ navigation }) => {
   return (
     <View>
-      {/* <sumPrice /> */}
+      <sumPrice />
       <ProductS />
       <Button
         title="Добавить продукт"
-        onPress={() => navigation.navigate("addNew")}
+        onPress={() => navigation.navigate("addNewProduct")}
       />
     </View>
   );

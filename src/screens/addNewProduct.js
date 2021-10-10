@@ -4,9 +4,9 @@ import { View, StyleSheet, TextInput, Button } from "react-native";
 import { addNewProduct } from "../redux/product/reducer";
 import { useDispatch } from "react-redux";
 
-export const addNewProductScreen = () => {
-  const [name, setName] = React.useState(null);
-  const [description, setDescription] = React.useState(null);
+export const addNewProductScreen = ({ navigation: { goBack } }) => {
+  const [name, setName] = React.useState("");
+  const [description, setDescription] = React.useState("");
   const [price, setPrice] = React.useState(null);
 
   const onChangeName = (text) => {
@@ -51,10 +51,13 @@ export const addNewProductScreen = () => {
         value={price}
         placeholder="Введите цену"
         onChangeText={onChangePrice}
+        keyboardType="numeric"
       />
       <Button
         title="Добавить продукт"
-        onPress={() => dispatch(addNewProduct(newProduct))}
+        onPress={() => {
+          dispatch(addNewProduct(newProduct)), goBack();
+        }}
       />
     </View>
   );

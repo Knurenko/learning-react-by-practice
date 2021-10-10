@@ -1,5 +1,4 @@
 import { productList } from "./productList";
-import { addNewProductScreen } from "../../screens/addNewProduct";
 
 const initialState = productList;
 
@@ -19,16 +18,9 @@ export const productReducer = (state = initialState, action) => {
   }
 };
 
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max);
-// }
-
 export const addNewProduct = (newProduct) => ({
   type: ADD_NEW_PRODUCT,
   payload: newProduct,
-  // id: getRandomInt(999999999999),
-  // title: getRandomInt(999999999999),
-  // date() уникальный id
 });
 
 export const deleteProduct = () => ({

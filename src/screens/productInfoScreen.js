@@ -3,6 +3,9 @@ import { View, Text } from "react-native";
 
 export const productInfoScreen = () => (
   <View>
-    <Text>Product Info Screen</Text>
+    <Text>Product:</Text>
+    <Text>Discription:</Text>
+    <Text>Price:</Text>
+    <Text>Photo</Text>
   </View>
 );

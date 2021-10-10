@@ -4,21 +4,16 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  Button,
   StyleSheet,
   ScrollView,
   StatusBar,
   View,
 } from "react-native";
 
-import { addNewProduct, deleteProduct } from "../redux/product/reducer";
-
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 
-export const ProductS = ({ navigation }) => {
+export const ProductS = () => {
   const products = useSelector((state) => state.product);
-  const dispatch = useDispatch();
 
   const Item = ({ item }) => (
     <TouchableOpacity style={styles.container}>
@@ -40,10 +35,6 @@ export const ProductS = ({ navigation }) => {
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-        {/* <Button
-          title="Удалить продукт №1"
-          onPress={() => dispatch(deleteProduct())}
-        /> */}
       </ScrollView>
     </SafeAreaView>
   );
