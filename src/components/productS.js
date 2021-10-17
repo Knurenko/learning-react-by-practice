@@ -6,9 +6,11 @@ import {
   TouchableOpacity,
   ScrollView,
   View,
+  StyleSheet
 } from "react-native";
 
 import { useSelector } from "react-redux";
+
 
 export const ProductS = () => {
   const products = useSelector((state) => state.product);
