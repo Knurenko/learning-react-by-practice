@@ -4,9 +4,7 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
   ScrollView,
-  StatusBar,
   View,
 } from "react-native";
 
@@ -16,9 +14,9 @@ export const ProductS = () => {
   const products = useSelector((state) => state.product);
 
   const Item = ({ item }) => (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.view}>
-        <Text style={styles.item}>{item.title}</Text>
+    <TouchableOpacity>
+      <View style={styles.item}>
+        <Text style={styles.title}>{item.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -42,18 +40,20 @@ export const ProductS = () => {
 
 const styles = StyleSheet.create({
   item: {
-    height: 27,
-    padding: 5,
-  },
-  container: {
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
+    padding: 24,
+    backgroundColor: "#eaeaea",
   },
-  view: {
-    backgroundColor: "purple",
-    justifyContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 15,
+  title: {
+    marginTop: 16,
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: "#20232a",
+    borderRadius: 6,
+    backgroundColor: "#61dafb",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });

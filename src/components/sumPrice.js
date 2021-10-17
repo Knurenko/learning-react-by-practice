@@ -1,21 +1,26 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { useSelector } from "react-redux";
 
-export const sumPrice = () => {
+export const SumPrice = () => {
   const price = useSelector((state) => state.product);
-  const getSum = (state) => {
-    let sum = 0;
-    state.foreach((item) => {
-      sum += item.price;
-    });
 
-    return sum;
-  };
+  function prices(item) {
+    return item.price;
+  }
+  function addPrices(pr, price) {
+    return pr + price;
+  }
+  const PriceScores = price.map(prices);
+
+  const ScoresPrice = () => PriceScores.reduce(addPrices, 0);
+  const PriceToNum = (ScoresPrice) => ScoresPrice - 0;
 
   return (
     <View>
-      <getSum />
+      <Text>
+        <PriceToNum />
+      </Text>
     </View>
   );
 };
