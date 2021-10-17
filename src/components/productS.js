@@ -11,12 +11,12 @@ import {
 
 import { useSelector } from "react-redux";
 
-
 export const ProductS = () => {
   const products = useSelector((state) => state.product);
 
   const Item = ({ item }) => (
-    <TouchableOpacity>
+    <TouchableOpacity
+    onPress = {(item) => navigation.navigate("ProductInfo") }> 
       <View style={styles.item}>
         <Text style={styles.title}>{item.title}</Text>
       </View>
