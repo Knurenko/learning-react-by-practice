@@ -1,11 +1,19 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { useSelector } from "react-redux";
 
-export const productInfoScreen = () => (
+export const productInfoScreen = ({ navigation, route }) => {
+
+  // const products = useSelector((state) => state.product);
+
+  // const {} = route.params;
+  return (
+
   <View>
-    <Text>Product:</Text>
+    <Text>Product:  </Text>
     <Text>Discription:</Text>
     <Text>Price:</Text>
     <Text>Photo</Text>
   </View>
-);
+  )
+};

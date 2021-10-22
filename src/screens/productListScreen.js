@@ -8,8 +8,8 @@ import { SumPrice } from "../components/sumPrice";
 export const productListScreen = ({ navigation }) => {
   return (
     <View>
-      <SumPrice />
-      <ProductS />
+      {/* <SumPrice />  */} 
+      <ProductS navigation = {navigation} />
       <View>
         <Button
           title="Добавить продукт"
