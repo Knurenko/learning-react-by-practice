@@ -14,11 +14,11 @@ import { useSelector } from "react-redux";
 export const ProductS = ({navigation}) => {
   const products = useSelector((state) => state.product);
 
-  const Item = ({ item }) => (
+  const Item = ({ item }) => (            // применяем touchbleOpacity для клика на item
     <TouchableOpacity
-    onPress = {() => navigation.navigate("ProductInfo") }> 
+    onPress = {() => navigation.navigate("ProductInfo")}> 
       <View style={styles.item}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.title}>{item.title}</Text>    
       </View>
     </TouchableOpacity>
   );
@@ -32,8 +32,8 @@ export const ProductS = ({navigation}) => {
       <ScrollView>
         <FlatList
           data={products}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          keyExtractor={(item) => item.id} // извлекаем по id
+          renderItem={renderItem} // рендерим renderItem с Item 
         />
       </ScrollView>
     </SafeAreaView>
