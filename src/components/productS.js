@@ -9,6 +9,8 @@ import {
   StyleSheet
 } from "react-native";
 
+import {namesScreens} from "../navigation/namesScreens"
+
 import { useSelector } from "react-redux";
 
 export const ProductS = ({navigation}) => {
@@ -16,7 +18,7 @@ export const ProductS = ({navigation}) => {
 
   const Item = ({ item }) => (            // применяем touchbleOpacity для клика на item
     <TouchableOpacity
-    onPress = {() => navigation.navigate("ProductInfo")}> 
+    onPress = {() => {navigation.navigate(namesScreens.productInfoScreen, {item:item})}}> 
       <View style={styles.item}>
         <Text style={styles.title}>{item.title}</Text>    
       </View>
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     padding: 24,
-    backgroundColor: "#eaeaea",
+    backgroundColor: "pink",
   },
   title: {
     marginTop: 16,
