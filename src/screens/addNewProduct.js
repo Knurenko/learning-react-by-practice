@@ -1,7 +1,9 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Button, Image, } from "react-native";
+import { View, StyleSheet, TextInput, Button, Image, Text } from "react-native";
 
 import ImagePicker from 'react-native-image-crop-picker';
+import Modal from "react-native-modal";
+
 
 import { addNewProduct } from "../redux/product/reducer";
 import { useDispatch } from "react-redux";
@@ -11,6 +13,13 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
   const [description, setDescription] = React.useState("");
   const [price, setPrice] = React.useState(null);
   const [picture, setPicture] = React.useState(null);
+
+  //модальное окно 
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
 
   const onChangeName = (text) => {
     setName(text);
@@ -22,14 +31,16 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
     setPrice(number);
   };
 
+  // рандомный id
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+  // сделать фото с камеры
   const takePhotoFromCamera = () => {
     ImagePicker.openCamera({
-      width: 300,
-      height: 400,
+      width: 500,
+      height: 500,
       cropping: true,
     }).then(image => {
       console.log(image);
@@ -37,10 +48,11 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
     });
   } 
 
+  // выбрать фото из галереии 
   const takePhotoFromLib = () => {
     ImagePicker.openPicker({
-      width: 300,
-      height: 400,
+      width: 500,
+      height: 500,
       cropping: true
     }).then(image => {
       console.log(image);
@@ -48,7 +60,7 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
     });
   }
   
-
+// новый продукт который диспатчим
   const newProduct = {
     id: getRandomInt(999999999999),
     title: name,
@@ -60,7 +72,7 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
   const dispatch = useDispatch();
 
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
         style={styles.input}
         value={name}
@@ -82,17 +94,33 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
       />
 
         <Image
-        style={{height:100, width:100}}
+        style={{height:150, width:150}}
         source={{uri: picture}}
       />
-        <Button
-          title="PHOTO from camera"
+        <Button title="Add photo" onPress={toggleModal} /> 
+        <Modal 
+        animationInTiming={500}
+        animationOutTiming={500}
+        backdropTransitionInTiming={500}
+        backdropTransitionOutTiming={500}
+        swipeDirection={['up', 'left', 'right', 'down']}
+        style={styles.modal}
+        isVisible={isModalVisible}>
+        <View>
+          <Button
+          title="Photo from camera"
           onPress={takePhotoFromCamera}
         />
         <Button
-          title="PHOTO from gallary"
-          onPress={takePhotoFromLib}
+          title="Photo from gallary"
+          onPress={takePhotoFromLib, toggleModal}
         />
+
+          <Button title="Cancel" onPress={toggleModal} />
+        </View>
+      </Modal>
+      
+        
 
       <Button
         title="Добавить продукт"
@@ -105,11 +133,21 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "pink",
+  },
   input: {
     height: 50,
     margin: 20,
     borderRadius: 10,
     borderWidth: 2,
     padding: 15,
+  },
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
   },
 });
