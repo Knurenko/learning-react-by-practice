@@ -1,9 +1,9 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Button, Image, Text } from "react-native";
+import { View, Image, StyleSheet, SafeAreaView } from "react-native";
+import { TextInput, Button } from "react-native-paper";
 
-import ImagePicker from 'react-native-image-crop-picker';
+import ImagePicker from "react-native-image-crop-picker";
 import Modal from "react-native-modal";
-
 
 import { addNewProduct } from "../redux/product/reducer";
 import { useDispatch } from "react-redux";
@@ -12,14 +12,15 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [price, setPrice] = React.useState(null);
-  const [picture, setPicture] = React.useState(null);
+  const [photo, setPhoto] = React.useState(
+    "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960"
+  );
 
-  //модальное окно 
+  //модальное окно
   const [isModalVisible, setModalVisible] = React.useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-
 
   const onChangeName = (text) => {
     setName(text);
@@ -42,112 +43,134 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
       width: 500,
       height: 500,
       cropping: true,
-    }).then(image => {
-      console.log(image);
-      setPicture(image.path);
+    }).then((image) => {
+      setPhoto(image.path);
     });
-  } 
+  };
 
-  // выбрать фото из галереии 
+  // выбрать фото из галереии
   const takePhotoFromLib = () => {
     ImagePicker.openPicker({
       width: 500,
       height: 500,
-      cropping: true
-    }).then(image => {
-      console.log(image);
-      setPicture(image.path);
+      cropping: true,
+    }).then((image) => {
+      setPhoto(image.path);
     });
-  }
-  
-// новый продукт который диспатчим
+  };
+
+  // новый продукт который диспатчим
   const newProduct = {
     id: getRandomInt(999999999999),
     title: name,
     description: description,
     price: price,
-    photo: picture,
+    photo: photo,
   };
 
   const dispatch = useDispatch();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
-        style={styles.input}
-        value={name}
-        placeholder="Введите название продукта"
+        style={styles.textInput}
+        mode="outlined"
+        label="Title product"
+        placeholder="Type title"
         onChangeText={onChangeName}
       />
       <TextInput
-        style={styles.input}
-        value={description}
-        placeholder="Введите описание продукта"
+        style={styles.textInput}
+        mode="outlined"
+        label="Description"
+        placeholder="Type description"
         onChangeText={onChangeDescription}
       />
       <TextInput
-        style={styles.input}
-        value={price}
-        placeholder="Введите цену"
+        style={styles.textInput}
+        mode="outlined"
+        label="Price"
+        placeholder="Type price"
         onChangeText={onChangePrice}
-        keyboardType="numeric"
+        keyboardType="phone-pad"
       />
 
-        <Image
-        style={{height:150, width:150}}
-        source={{uri: picture}}
-      />
-        <Button title="Add photo" onPress={toggleModal} /> 
-        <Modal 
+      <Image style={styles.image} source={{ uri: photo }} />
+
+      <Button
+        mode="outlined"
+        icon="camera"
+        onPress={toggleModal}
+        style={styles.button}
+      >
+        take Photo
+      </Button>
+      <Modal
         animationInTiming={500}
         animationOutTiming={500}
         backdropTransitionInTiming={500}
         backdropTransitionOutTiming={500}
-        swipeDirection={['up', 'left', 'right', 'down']}
         style={styles.modal}
-        isVisible={isModalVisible}>
+        isVisible={isModalVisible}
+      >
         <View>
           <Button
-          title="Photo from camera"
-          onPress={takePhotoFromCamera}
-        />
-        <Button
-          title="Photo from gallary"
-          onPress={takePhotoFromLib, toggleModal}
-        />
+            mode="contained"
+            icon="camera"
+            onPress={takePhotoFromCamera}
+            style={styles.button}
+          >
+            from camera
+          </Button>
+          <Button
+            mode="contained"
+            icon="camera"
+            onPress={takePhotoFromLib}
+            style={styles.button}
+          >
+            from galary
+          </Button>
 
-          <Button title="Cancel" onPress={toggleModal} />
+          <Button mode="contained" onPress={toggleModal} style={styles.button}>
+            close
+          </Button>
         </View>
       </Modal>
-      
-        
 
       <Button
-        title="Добавить продукт"
+        mode="contained"
         onPress={() => {
           dispatch(addNewProduct(newProduct)), goBack();
         }}
-      />
-    </View>
+        style={styles.button}
+      >
+        ADD PRODUCT
+      </Button>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    backgroundColor: "pink",
-  },
-  input: {
-    height: 50,
-    margin: 20,
-    borderRadius: 10,
-    borderWidth: 2,
-    padding: 15,
   },
   modal: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     margin: 0,
+  },
+  textInput: {
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+  },
+  image: {
+    height: 200,
+    width: 200,
+    borderRadius: 15,
+    marginLeft: 90,
+    marginTop: 15,
+  },
+  button: {
+    margin: 10,
   },
 });

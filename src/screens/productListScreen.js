@@ -1,19 +1,36 @@
 import React from "react";
-import { View, Button, StyleSheet, SafeAreaView, ScrollView, FlatList, TouchableOpacity, Text } from "react-native";
-// import { SumPrice } from "../components/sumPrice";
-import {namesScreens} from "../navigation/namesScreens"
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  SafeAreaView,
+  Image,
+} from "react-native";
+
+import { Button, Surface, Avatar } from "react-native-paper";
+import { SumPrice } from "../components/sumPrice";
+import { namesScreens } from "../navigation/namesScreens";
 
 import { useSelector } from "react-redux";
 
 export const productListScreen = ({ navigation }) => {
-
   const products = useSelector((state) => state.product);
 
-  const Item = ({ item }) => (            // применяем touchbleOpacity для клика на item
+  const Item = ({ item }) => (
     <TouchableOpacity
-    onPress = {() => {navigation.navigate(namesScreens.productInfoScreen, {item:item})}}> 
-      <View style={styles.item}>
-        <Text style={styles.title}>{item.title}</Text>    
+      style={styles.item}
+      onPress={() => {
+        navigation.navigate(namesScreens.productInfoScreen, { item: item });
+      }}
+    >
+      <View>
+        <Surface style={styles.surface}>
+          <Image size={40} source={item.photo} />
+          <Text>{item.title}</Text>
+        </Surface>
       </View>
     </TouchableOpacity>
   );
@@ -23,48 +40,50 @@ export const productListScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <FlatList
-          data={products}
-          keyExtractor={(item) => item.id} // извлекаем по id
-          renderItem={renderItem} // рендерим renderItem с Item 
-        />
-
-        <View style={styles.button}>
+    <View>
+      <SafeAreaView>
+        <SumPrice />
+        <ScrollView>
+          <View style={{ alignItems: "center", marginTop: 1 }}>
+            <FlatList
+              data={products}
+              keyExtractor={(item) => item.id}
+              renderItem={renderItem}
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+      <View style={styles.button}>
         <Button
-          title="Добавить продукт"
-          onPress={() => navigation.navigate(namesScreens.addNewProductScreen)}
-        />
+          mode="contained"
+          onPress={() => {
+            navigation.navigate(namesScreens.addNewProductScreen);
+          }}
+        >
+          Add new Product
+        </Button>
       </View>
-      </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
-
 const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15,
-    padding: 15,
-  },
+  button: {},
   item: {
+    marginTop: 10,
     flex: 1,
-    padding: 24,
     backgroundColor: "pink",
   },
-  title: {
-    marginTop: 16,
-    paddingVertical: 8,
-    borderWidth: 4,
-    borderColor: "#20232a",
-    borderRadius: 6,
-    backgroundColor: "#61dafb",
-    color: "#20232a",
-    textAlign: "center",
-    fontSize: 15,
-    fontWeight: "bold",
+  surface: {
+    padding: 8,
+    height: 100,
+    width: 300,
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 4,
   },
-})
+  footer: {
+    position: "absolute",
+    bottom: 0,
+  },
+});

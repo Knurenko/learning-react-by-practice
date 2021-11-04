@@ -13,6 +13,7 @@ MERGED from [:react-native-gesture-handler] C:\Users\User\Desktop\learning-react
 MERGED from [:react-native-image-crop-picker] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-34:12
 MERGED from [:react-native-safe-area-context] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\User\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\0ea3fdda9f5684423892484ef8480b5f\swiperefreshlayout-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\User\.gradle\caches\transforms-2\files-2.1\65337ca8c0783fc27be60d476a5f6b75\jetified-android-jsc-r245459\AndroidManifest.xml:2:1-11:12
@@ -191,6 +192,8 @@ MERGED from [:react-native-safe-area-context] C:\Users\User\Desktop\learning-rea
 MERGED from [:react-native-safe-area-context] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\User\Desktop\learning-react-by-practice\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\User\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\User\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\0ea3fdda9f5684423892484ef8480b5f\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
