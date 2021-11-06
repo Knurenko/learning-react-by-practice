@@ -2,8 +2,9 @@ export const productList = [
   {
     id: 1,
     title: "First",
-    description: "Example",
-    photo: null,
+    description: "Example decription",
+    photo:
+      "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960",
     price: 1499,
     date: 1,
     favorite: 1,

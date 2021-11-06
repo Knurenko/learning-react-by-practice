@@ -2,7 +2,6 @@ import React from "react";
 import {
   View,
   StyleSheet,
-  ScrollView,
   FlatList,
   TouchableOpacity,
   Text,
@@ -10,48 +9,63 @@ import {
   Image,
 } from "react-native";
 
-import { Button, Surface, Avatar } from "react-native-paper";
+import { Button, Surface, IconButton, Colors } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
+import { deleteProduct } from "../redux/product/reducer";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export const productListScreen = ({ navigation }) => {
   const products = useSelector((state) => state.product);
+  const dispatch = useDispatch();
 
-  const Item = ({ item }) => (
-    <TouchableOpacity
-      style={styles.item}
-      onPress={() => {
-        navigation.navigate(namesScreens.productInfoScreen, { item: item });
-      }}
-    >
-      <View>
-        <Surface style={styles.surface}>
-          <Image size={40} source={item.photo} />
-          <Text>{item.title}</Text>
-        </Surface>
-      </View>
-    </TouchableOpacity>
-  );
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const renderItem = ({ item }) => {
-    return <Item item={item} />;
+    return (
+      <TouchableOpacity
+        style={styles.item}
+        onPress={() => {
+          navigation.navigate(namesScreens.productInfoScreen, {
+            item: item,
+          });
+        }}
+      >
+        <View>
+          <Surface style={styles.surface}>
+            <Image size={40} source={item.photo} />
+            <View style={styles.centerItem}>
+              <Text>{item.title}</Text>
+            </View>
+            <IconButton
+              icon="delete"
+              color={Colors.red500}
+              size={20}
+              onPress={() => dispatch(deleteProduct(item.id))}
+            />
+          </Surface>
+        </View>
+      </TouchableOpacity>
+    );
   };
 
   return (
     <View>
       <SafeAreaView>
-        <SumPrice />
-        <ScrollView>
-          <View style={{ alignItems: "center", marginTop: 1 }}>
-            <FlatList
-              data={products}
-              keyExtractor={(item) => item.id}
-              renderItem={renderItem}
-            />
-          </View>
-        </ScrollView>
+        <View style={styles.sumPrie}>
+          <SumPrice />
+        </View>
+        <View style={styles.flatList}>
+          <FlatList
+            data={products}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+          />
+        </View>
       </SafeAreaView>
       <View style={styles.button}>
         <Button
@@ -69,21 +83,26 @@ export const productListScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {},
+  sumPrice: {},
   item: {
     marginTop: 10,
-    flex: 1,
-    backgroundColor: "pink",
   },
   surface: {
-    padding: 8,
-    height: 100,
+    height: 150,
     width: 300,
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    elevation: 4,
+    justifyContent: "space-between",
+    borderRadius: 10,
   },
+  centerItem: {},
   footer: {
     position: "absolute",
     bottom: 0,
+  },
+  flatList: {
+    alignItems: "center",
+    marginTop: 2,
+    height: 600,
   },
 });
