@@ -45,6 +45,13 @@ export const productListScreen = ({ navigation }) => {
             </View>
             <View style={styles.rightItem}>
               <IconButton
+                style={styles.iconButtonFavorite}
+                icon="heart"
+                color={Colors.blue50}
+                size={20}
+                onPress={() => dispatch()}
+              />
+              <IconButton
                 icon="delete"
                 color={Colors.red500}
                 size={20}
@@ -90,12 +97,15 @@ const styles = StyleSheet.create({
   button: {},
   sumPrice: {},
   rightItem: {},
+  iconButtonFavorite: {
+    marginBottom: 40,
+  },
   item: {
     marginTop: 10,
   },
   textTitle: {
     fontSize: 24,
-    marginBottom: 5,
+    marginBottom: 20,
   },
   textPrice: {
     fontSize: 24,
