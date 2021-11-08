@@ -37,7 +37,7 @@ export const productListScreen = ({ navigation }) => {
       >
         <View>
           <Surface style={styles.surface}>
-            <Image size={40} source={item.photo} />
+            <Image size={40} source={{ uri: item.photo }} />
             <View style={styles.centerItem}>
               <Text>{item.title}</Text>
             </View>

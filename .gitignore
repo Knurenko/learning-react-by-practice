@@ -254,3 +254,9 @@ android/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/value
 android/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zh-rTW.json
 android/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zu.json
 android/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values.json
+android/.gradle/checksums/checksums.lock
+android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+android/.gradle/6.7/fileHashes/fileHashes.lock
+android/.gradle/6.7/fileHashes/fileHashes.bin
+android/.gradle/6.7/executionHistory/executionHistory.lock
+android/.gradle/6.7/executionHistory/executionHistory.bin
