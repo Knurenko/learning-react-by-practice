@@ -6,10 +6,9 @@ import {
   TouchableOpacity,
   Text,
   SafeAreaView,
-  Image,
 } from "react-native";
 
-import { Button, Surface, IconButton, Colors } from "react-native-paper";
+import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
 import { deleteProduct } from "../redux/product/reducer";
@@ -20,10 +19,10 @@ export const productListScreen = ({ navigation }) => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const [isModalVisible, setModalVisible] = React.useState(false);
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
+  // const [isModalVisible, setModalVisible] = React.useState(false);
+  // const toggleModal = () => {
+  //   setModalVisible(!isModalVisible);
+  // };
 
   const renderItem = ({ item }) => {
     return (
@@ -37,7 +36,9 @@ export const productListScreen = ({ navigation }) => {
       >
         <View>
           <Surface style={styles.surface}>
-            <Image size={40} source={{ uri: item.photo }} />
+            <Card>
+              <Card.Cover style={styles.photo} source={{ uri: item.photo }} />
+            </Card>
             <View style={styles.centerItem}>
               <Text>{item.title}</Text>
             </View>
@@ -69,6 +70,7 @@ export const productListScreen = ({ navigation }) => {
       </SafeAreaView>
       <View style={styles.button}>
         <Button
+          style={styles.button}
           mode="contained"
           onPress={() => {
             navigation.navigate(namesScreens.addNewProductScreen);
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   surface: {
+    flex: 1,
     height: 150,
     width: 300,
     flexDirection: "row",
@@ -96,13 +99,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   centerItem: {},
-  footer: {
-    position: "absolute",
-    bottom: 0,
-  },
   flatList: {
     alignItems: "center",
     marginTop: 2,
-    height: 600,
+    height: 710,
+  },
+  photo: {
+    margin: 10,
+    height: 130,
+    width: 130,
+    borderRadius: 10,
   },
 });
