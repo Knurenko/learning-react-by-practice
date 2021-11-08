@@ -7,7 +7,7 @@ export const productList = [
       "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960",
     price: 1499,
     date: 1,
-    favorite: 1,
+    favorite: true,
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const productList = [
     photo: null,
     price: 2,
     date: 2,
-    favorite: 2,
+    favorite: false,
   },
   {
     id: 3,
@@ -25,6 +25,6 @@ export const productList = [
     photo: null,
     price: 3,
     date: 3,
-    favorite: 3,
+    favorite: true,
   },
 ];
