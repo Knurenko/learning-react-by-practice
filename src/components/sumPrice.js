@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
 export const SumPrice = () => {
@@ -17,9 +17,16 @@ export const SumPrice = () => {
 
   return (
     <View>
-      <Text>
-        <ScoresPrice />
+      <Text style={styles.totalPrice}>
+        Total price:
+        <ScoresPrice /> $
       </Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  totalPrice: {
+    fontSize: 24,
+  },
+});
