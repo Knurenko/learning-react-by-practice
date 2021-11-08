@@ -40,14 +40,17 @@ export const productListScreen = ({ navigation }) => {
               <Card.Cover style={styles.photo} source={{ uri: item.photo }} />
             </Card>
             <View style={styles.centerItem}>
-              <Text>{item.title}</Text>
+              <Text style={styles.textTitle}>{item.title}</Text>
+              <Text style={styles.textPrice}>{item.price}$</Text>
             </View>
-            <IconButton
-              icon="delete"
-              color={Colors.red500}
-              size={20}
-              onPress={() => dispatch(deleteProduct(item.id))}
-            />
+            <View style={styles.rightItem}>
+              <IconButton
+                icon="delete"
+                color={Colors.red500}
+                size={20}
+                onPress={() => dispatch(deleteProduct(item.id))}
+              />
+            </View>
           </Surface>
         </View>
       </TouchableOpacity>
@@ -86,8 +89,18 @@ export const productListScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   button: {},
   sumPrice: {},
+  rightItem: {},
   item: {
     marginTop: 10,
+  },
+  textTitle: {
+    fontSize: 24,
+    marginBottom: 5,
+  },
+  textPrice: {
+    fontSize: 24,
+    marginBottom: 5,
+    color: "gold",
   },
   surface: {
     flex: 1,
@@ -96,9 +109,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    borderRadius: 10,
+    borderRadius: 20,
   },
-  centerItem: {},
+  centerItem: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
   flatList: {
     alignItems: "center",
     marginTop: 2,
