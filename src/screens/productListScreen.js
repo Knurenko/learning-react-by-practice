@@ -12,6 +12,7 @@ import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
 import { deleteProduct } from "../redux/product/reducer";
+import { setFavorite } from "../redux/product/reducer";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -49,7 +50,7 @@ export const productListScreen = ({ navigation }) => {
                 icon="heart"
                 color={Colors.blue50}
                 size={20}
-                onPress={() => dispatch()}
+                onPress={() => dispatch(setFavorite(item.id))}
               />
               <IconButton
                 icon="delete"
@@ -67,9 +68,7 @@ export const productListScreen = ({ navigation }) => {
   return (
     <View>
       <SafeAreaView>
-        <View style={styles.sumPrie}>
-          <SumPrice />
-        </View>
+        <View style={styles.sumPrie}>{/* <SumPrice /> */}</View>
         <View style={styles.flatList}>
           <FlatList
             data={products}
@@ -134,6 +133,6 @@ const styles = StyleSheet.create({
     margin: 10,
     height: 130,
     width: 130,
-    borderRadius: 10,
+    borderRadius: 20,
   },
 });
