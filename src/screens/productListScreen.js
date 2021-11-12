@@ -43,7 +43,9 @@ export const productListScreen = ({ navigation }) => {
               <IconButton
                 style={styles.iconButtonFavorite}
                 icon="heart"
-                color={Colors.blue50}
+                color={
+                  item.favorite === true ? Colors.orange400 : Colors.blue200
+                }
                 size={20}
                 onPress={() => dispatch(setFavorite(item.id))}
               />
