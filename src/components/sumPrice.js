@@ -3,24 +3,19 @@ import { View, Text, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
 export const SumPrice = () => {
-  const price = useSelector((state) => state.product);
+  const products = useSelector((state) => state.product);
 
-  function prices(item) {
-    return +item.price;
-  }
-  function addPrices(pr, price) {
-    return pr + price;
-  }
-  const PriceScores = price.map(prices);
-
-  const ScoresPrice = () => PriceScores.reduce(addPrices, 0);
+  const getTotalCost = (products) => {
+    let sum = 0;
+    products.forEach((item) => {
+      sum += +item.price;
+    });
+    return sum;
+  };
 
   return (
     <View>
-      <Text style={styles.totalPrice}>
-        Total price:
-        <ScoresPrice /> $
-      </Text>
+      <Text style={styles.totalPrice}>{getTotalCost(products)} </Text>
     </View>
   );
 };

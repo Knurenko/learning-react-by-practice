@@ -20,11 +20,6 @@ export const productListScreen = ({ navigation }) => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  // const [isModalVisible, setModalVisible] = React.useState(false);
-  // const toggleModal = () => {
-  //   setModalVisible(!isModalVisible);
-  // };
-
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -68,7 +63,9 @@ export const productListScreen = ({ navigation }) => {
   return (
     <View>
       <SafeAreaView>
-        <View style={styles.sumPrie}>{/* <SumPrice /> */}</View>
+        <View style={styles.sumPrie}>
+          <SumPrice />
+        </View>
         <View style={styles.flatList}>
           <FlatList
             data={products}

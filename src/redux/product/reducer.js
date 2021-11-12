@@ -8,17 +8,21 @@ const SET_FAVORITE_PRODUCT = "SET_FAVORITE_PRODUCT";
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_NEW_PRODUCT:
+    case ADD_NEW_PRODUCT: {
       return [...state, action.payload];
-    case DELETE_PRODUCT:
+    }
+    case DELETE_PRODUCT: {
       const id = action.payload;
       return [...state.filter((item) => item.id !== id)];
-    case SET_FAVORITE_PRODUCT:
-      const checkFavorite = (item) => {
-        return { ...item, favorite: !item.favorite };
+    }
+    case SET_FAVORITE_PRODUCT: {
+      const id = action.payload;
+      const checkFavorite = (item, id) => {
+        return item.id === id ? { ...item, favorite: !item.favorite } : item;
       };
-      const updatedArray = state.map((item) => checkFavorite(item));
+      const updatedArray = state.map((item) => checkFavorite(item, id));
       return [...updatedArray];
+    }
 
     default:
       return state;
