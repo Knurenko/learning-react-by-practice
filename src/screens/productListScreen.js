@@ -8,21 +8,19 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import Modal from "react-native-modal";
+
 import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
 import { deleteProduct } from "../redux/product/reducer";
+import { setFavorite } from "../redux/product/reducer";
 
 import { useSelector, useDispatch } from "react-redux";
 
 export const productListScreen = ({ navigation }) => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
-
-  // const [isModalVisible, setModalVisible] = React.useState(false);
-  // const toggleModal = () => {
-  //   setModalVisible(!isModalVisible);
-  // };
 
   const renderItem = ({ item }) => {
     return (
@@ -47,9 +45,11 @@ export const productListScreen = ({ navigation }) => {
               <IconButton
                 style={styles.iconButtonFavorite}
                 icon="heart"
-                color={Colors.blue50}
+                color={
+                  item.favorite === true ? Colors.orange400 : Colors.blue200
+                }
                 size={20}
-                onPress={() => dispatch()}
+                onPress={() => dispatch(setFavorite(item.id))}
               />
               <IconButton
                 icon="delete"
@@ -134,6 +134,6 @@ const styles = StyleSheet.create({
     margin: 10,
     height: 130,
     width: 130,
-    borderRadius: 10,
+    borderRadius: 20,
   },
 });
