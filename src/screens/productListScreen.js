@@ -8,6 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import Modal from "react-native-modal";
+
 import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";

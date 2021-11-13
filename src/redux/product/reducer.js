@@ -17,10 +17,10 @@ export const productReducer = (state = initialState, action) => {
     }
     case SET_FAVORITE_PRODUCT: {
       const id = action.payload;
-      const checkFavorite = (item, id) => {
+      const checkFavorite = (item) => {
         return item.id === id ? { ...item, favorite: !item.favorite } : item;
       };
-      const updatedArray = state.map((item) => checkFavorite(item, id));
+      const updatedArray = state.map(checkFavorite);
       return [...updatedArray];
     }
 
