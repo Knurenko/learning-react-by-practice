@@ -1,10 +1,12 @@
 # Android/IntelliJ
 #
 build/
-.idea
-.gradle
+    .idea
+    .gradle
 local.properties
 *.iml
+# android/app/build
+android/.gradle
 
 # node.js
 #
