@@ -32,6 +32,8 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
     setPrice(number);
   };
 
+  const numPrice = parseFloat(price);
+
   // рандомный id
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -64,7 +66,7 @@ export const addNewProductScreen = ({ navigation: { goBack } }) => {
     id: getRandomInt(999999999999),
     title: name,
     description: description,
-    price: price,
+    price: numPrice,
     photo: photo,
   };
 

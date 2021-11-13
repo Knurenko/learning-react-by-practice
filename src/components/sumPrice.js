@@ -8,7 +8,7 @@ export const SumPrice = () => {
   const getTotalCost = (products) => {
     let sum = 0;
     products.forEach((item) => {
-      sum += +item.price;
+      sum += item.price;
     });
     return sum;
   };

@@ -8,6 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import Modal from "react-native-modal";
+
 import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
@@ -43,7 +45,9 @@ export const productListScreen = ({ navigation }) => {
               <IconButton
                 style={styles.iconButtonFavorite}
                 icon="heart"
-                color={Colors.blue50}
+                color={
+                  item.favorite === true ? Colors.orange400 : Colors.blue200
+                }
                 size={20}
                 onPress={() => dispatch(setFavorite(item.id))}
               />
