@@ -10,13 +10,16 @@ export const productInfoScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.item}>
-        <Text style={styles.itemTitle}>{item.title}</Text>
+        <Text style={styles.itemTitle}>{item.itemTitle}</Text>
         <Card>
-          <Card.Cover style={styles.itemPhoto} source={{ uri: item.photo }} />
+          <Card.Cover
+            style={styles.itemPhoto}
+            source={{ uri: item.itemPhoto }}
+          />
         </Card>
         <Text style={styles.description}>{item.description}</Text>
         <Text style={styles.itemPrice}>
-          Price:<Text>{item.price} $</Text>
+          Price:<Text>{item.itemPrice} $</Text>
         </Text>
       </View>
     </View>

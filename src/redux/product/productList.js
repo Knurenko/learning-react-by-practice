@@ -7,13 +7,14 @@ export const productList = [
       "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960",
     price: 1499,
     date: 1,
-    favorite: false,
+    favorite: true,
   },
   {
     id: 2,
     title: "Second",
     description: "Example",
-    photo: null,
+    photo:
+      "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960",
     price: 2,
     date: 2,
     favorite: false,
@@ -22,7 +23,8 @@ export const productList = [
     id: 3,
     title: "3",
     description: "Example",
-    photo: null,
+    photo:
+      "https://cdn-icons.flaticon.com/png/128/2914/premium/2914140.png?token=exp=1635632478~hmac=41d5fadfeb848dbbddfa86dbe2e13960",
     price: 3,
     date: 3,
     favorite: false,

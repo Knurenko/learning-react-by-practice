@@ -1,66 +1,34 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-  Text,
-  SafeAreaView,
-} from "react-native";
+import { View, StyleSheet, FlatList, SafeAreaView } from "react-native";
 
-import Modal from "react-native-modal";
-
-import { Button, Surface, IconButton, Colors, Card } from "react-native-paper";
+import { Button } from "react-native-paper";
 import { SumPrice } from "../components/sumPrice";
 import { namesScreens } from "../navigation/namesScreens";
-import { deleteProduct } from "../redux/product/reducer";
 import { setFavorite } from "../redux/product/reducer";
+
+import { ProductCard } from "../components/productCard";
 
 import { useSelector, useDispatch } from "react-redux";
 
-export const productListScreen = ({ navigation }) => {
+export const productListScreen = (props) => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const renderItem = ({ item }) => {
+  const navigation = props.navigation;
+
+  const productCardItem = ({ item }) => {
+    // const setFavorite = dispatch(setFavorite(itemID));
     return (
-      <TouchableOpacity
-        style={styles.item}
-        onPress={() => {
-          navigation.navigate(namesScreens.productInfoScreen, {
-            item: item,
-          });
-        }}
-      >
-        <View>
-          <Surface style={styles.surface}>
-            <Card>
-              <Card.Cover style={styles.photo} source={{ uri: item.photo }} />
-            </Card>
-            <View style={styles.centerItem}>
-              <Text style={styles.textTitle}>{item.title}</Text>
-              <Text style={styles.textPrice}>{item.price}$</Text>
-            </View>
-            <View style={styles.rightItem}>
-              <IconButton
-                style={styles.iconButtonFavorite}
-                icon="heart"
-                color={
-                  item.favorite === true ? Colors.orange400 : Colors.blue200
-                }
-                size={20}
-                onPress={() => dispatch(setFavorite(item.id))}
-              />
-              <IconButton
-                icon="delete"
-                color={Colors.red500}
-                size={20}
-                onPress={() => dispatch(deleteProduct(item.id))}
-              />
-            </View>
-          </Surface>
-        </View>
-      </TouchableOpacity>
+      <ProductCard
+        itemID={item.id}
+        itemTitle={item.title}
+        itemDescription={item.description}
+        itemPrice={item.price}
+        itemPhoto={item.photo}
+        itemFavorite={item.favorite}
+        navigation={navigation}
+        onPressFavorite={setFavorite}
+      />
     );
   };
 
@@ -74,7 +42,7 @@ export const productListScreen = ({ navigation }) => {
           <FlatList
             data={products}
             keyExtractor={(item) => item.id}
-            renderItem={renderItem}
+            renderItem={productCardItem}
           />
         </View>
       </SafeAreaView>
@@ -94,9 +62,6 @@ export const productListScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  button: {},
-  sumPrice: {},
-  rightItem: {},
   iconButtonFavorite: {
     marginBottom: 40,
   },
