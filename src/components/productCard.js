@@ -11,7 +11,6 @@ export const ProductCard = (props) => {
   const itemPhoto = props.itemPhoto;
   const itemFavorite = props.itemFavorite;
   const itemDescription = props.itemDescription;
-
   const onPressFavorite = props.onPressFavorite;
 
   const itemRoute = {
