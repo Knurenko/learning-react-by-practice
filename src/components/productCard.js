@@ -48,7 +48,7 @@ export const ProductCard = (props) => {
               icon="heart"
               color={itemFavorite === true ? Colors.orange400 : Colors.blue200}
               size={20}
-              onPress={() => onPressFavorite}
+              onPress={() => onPressFavorite(itemID)}
             />
             {/* <IconButton
               icon="delete"

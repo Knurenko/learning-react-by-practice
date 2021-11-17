@@ -14,8 +14,8 @@ export const productListScreen = (props) => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const onPressFavorite = ({ item }) => {
-    dispatch(setFavorite(item.id));
+  const updateFavorite = (itemID) => {
+    dispatch(setFavorite(itemID));
   };
   const navigation = props.navigation;
 
@@ -29,7 +29,7 @@ export const productListScreen = (props) => {
         itemPhoto={item.photo}
         itemFavorite={item.favorite}
         navigation={navigation}
-        onPressFavorite={onPressFavorite}
+        onPressFavorite={updateFavorite}
       />
     );
   };
