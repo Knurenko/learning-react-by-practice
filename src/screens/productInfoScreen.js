@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import { StyleSheet } from "react-native";
+import { Card, Button } from "react-native-paper";
 
-import { Card } from "react-native-paper";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../redux/product/reducer";
 
-export const productInfoScreen = ({ navigation, route }) => {
+export const productInfoScreen = ({ navigation: { goBack }, route }) => {
+  const dispatch = useDispatch();
   const { item } = route.params;
 
   return (
@@ -21,6 +24,14 @@ export const productInfoScreen = ({ navigation, route }) => {
         <Text style={styles.itemPrice}>
           Price:<Text>{item.itemPrice} $</Text>
         </Text>
+        <Button
+          mode="contained"
+          onPress={() => {
+            dispatch(deleteProduct(item.itemID)), goBack();
+          }}
+        >
+          Delete this product
+        </Button>
       </View>
     </View>
   );
@@ -31,8 +42,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: "space-between",
+    flexDirection: "column",
   },
-  item: {},
   itemTitle: {
     fontSize: 30,
     fontWeight: "bold",

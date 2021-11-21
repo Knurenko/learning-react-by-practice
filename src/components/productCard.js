@@ -50,12 +50,6 @@ export const ProductCard = (props) => {
               size={20}
               onPress={() => onPressFavorite(itemID)}
             />
-            {/* <IconButton
-              icon="delete"
-              color={Colors.red500}
-              size={20}
-              onPress={() => dispatch(deleteProduct(item.id))}
-            /> */}
           </View>
         </Surface>
       </View>
@@ -65,10 +59,10 @@ export const ProductCard = (props) => {
 
 const styles = StyleSheet.create({
   iconButtonFavorite: {
-    marginBottom: 40,
+    marginBottom: 120,
   },
   item: {
-    marginTop: 10,
+    marginTop: 12,
   },
   textTitle: {
     fontSize: 24,
@@ -82,7 +76,7 @@ const styles = StyleSheet.create({
   surface: {
     flex: 1,
     height: 150,
-    width: 300,
+    width: 350,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

@@ -35,12 +35,12 @@ export const productListScreen = (props) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <SafeAreaView>
-        <View style={styles.sumPrie}>
+        <View style={styles.sumprice}>
           <SumPrice />
         </View>
-        <View style={styles.flatList}>
+        <View style={styles.flatlist}>
           <FlatList
             data={products}
             keyExtractor={(item) => item.id}
@@ -48,9 +48,8 @@ export const productListScreen = (props) => {
           />
         </View>
       </SafeAreaView>
-      <View style={styles.button}>
+      <View style={styles.buttonAddNew}>
         <Button
-          style={styles.button}
           mode="contained"
           onPress={() => {
             navigation.navigate(namesScreens.addNewProductScreen);
@@ -64,43 +63,21 @@ export const productListScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  iconButtonFavorite: {
-    marginBottom: 40,
-  },
-  item: {
-    marginTop: 10,
-  },
-  textTitle: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  textPrice: {
-    fontSize: 24,
-    marginBottom: 5,
-    color: "gold",
-  },
-  surface: {
+  container: {
     flex: 1,
-    height: 150,
-    width: 300,
-    flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
-    borderRadius: 20,
-  },
-  centerItem: {
-    flexDirection: "column",
     alignItems: "center",
+    backgroundColor: "yellow",
   },
-  flatList: {
-    alignItems: "center",
-    marginTop: 2,
-    height: 710,
+  sumprice: {
+    flex: 0.05,
+    backgroundColor: "green",
   },
-  photo: {
-    margin: 10,
-    height: 130,
-    width: 130,
-    borderRadius: 20,
+  flatlist: {
+    flex: 0.9,
+    backgroundColor: "red",
+  },
+  buttonAddNew: {
+    flex: 1,
   },
 });
