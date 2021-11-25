@@ -57,6 +57,14 @@ export const productListScreen = (props) => {
         >
           Add new Product
         </Button>
+        <Button
+          mode="contained"
+          onPress={() => {
+            navigation.navigate(namesScreens.test);
+          }}
+        >
+          go to screen for tests
+        </Button>
       </View>
     </View>
   );
@@ -65,19 +73,16 @@ export const productListScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "yellow",
   },
   sumprice: {
-    flex: 0.05,
-    backgroundColor: "green",
+    flex: 0.04,
   },
   flatlist: {
-    flex: 0.9,
-    backgroundColor: "red",
+    flex: 0.8,
   },
   buttonAddNew: {
-    flex: 1,
+    flex: 0.4,
+    padding: 10,
   },
 });
