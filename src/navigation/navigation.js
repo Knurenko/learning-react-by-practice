@@ -34,7 +34,7 @@ export const Navigation = () => {
         <Stack.Screen
           name={namesScreens.test}
           component={test}
-          options={{ title: "screen for tests" }}
+          options={{ title: "screen for test's" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
